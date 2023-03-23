@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+      <link rel="stylesheet" href="./css/styles.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+      <link rel="shortcut icon" href="./assets/img/ifavicon.ico" type="image/x-icon">
+      <title>Amazing Events | Details</title>
+   </head>
+   <body id="body_details" class="d-flex flex-column min-vh-100">
+      <header>
+         <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+               <a class="navbar-brand" href="#">
+               <img src="./assets/img/Logo.png" alt="Logo Empresa" id="Logo">
+               </a>
+               <h1>Amazing Moments</h1>
+               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse d-sd-flex col-xs-12 justify-content-md-end" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item"><a class="nav-link" href="./index.html">
+                    <i class="bi bi-house"></i>
+                    Home</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="./upcoming_events.html">
+                    <i class="bi bi-caret-right-square"></i>UpComing Events</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="./past_events.html">
+                    <i class="bi bi-caret-left-square"></i>Past Events</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="./contact.html">
+                    <i class="bi bi-pencil-square"></i>Contact</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="./stats.html">
+                    <i class="bi bi-file-bar-graph"></i>Stats</a>
+                  </li>
+                </ul>
+               </div>
+            </div>
+         </nav>
+      </header>
+      <main>
+         <div class="container-fluid">
+            <div class="card d-flex card d-flex flex-colum flex-md-row align-items-center justify-content-between mx-0 details" id="details">
+               <img v-bind:src="evento.image" alt="image event">
+                  <div class="card-body body_details">
+                  <h5 class="card-title"><strong>
+                  {{evento.name}}
+                  </strong>
+               </h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{evento.description}}</h6>
+            <p class="card-text descripcion"><i class="bi bi-calendar-check"></i> <strong>Date:</strong>: {{evento.date}}</p>
+            <p class="card-text descripcion"><i class="bi bi-geo-alt-fill"></i> <strong>Place:</strong> {{evento.place}}</p>
+            <p class="card-text descripcion"><i class="bi bi-coin"></i> <strong>Price:</strong>{{evento.price}} </p>
+          </div>
+            </div>
+         </div>
+      </main>
+      <footer class="footer mt-auto">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-6 d-flex justify-content-start align-items-center ">
+                  <a href="https://www.facebook.com/" target="_blank"><i class="fs-4 bi bi-facebook icono"></i></a> 
+                  <a href="https://www.instagram.com/" target="_blank"><i class="fs-4 bi bi-instagram icono"></i></a>
+                  <a href="https://www.whatsapp.com/" target="_blank"><i class="fs-4 bi bi-whatsapp icono"></i></a>
+               </div>
+               <div class="col-6 d-flex justify-content-end align-items-center">
+                  <p class="footer_der">COHORT</p>
+               </div>
+            </div>
+         </div>
+      </footer>
+     
+      <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+      <script src="./script/details.js"></script>
+      
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+   </body>
+</html>

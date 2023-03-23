@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./assets/img/ifavicon.ico" type="image/x-icon">
+    <title>Amazing events | Past Events</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+          <img src="./assets/img/Logo.png" alt="Logo Empresa" id="Logo">
+
+          </a>
+          <h1>Amazing Moments</h1> 
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse d-sd-flex col-xs-12 justify-content-md-end" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link" href="./index.html">
+                <i class="bi bi-house"></i>
+                Home</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="./upcoming_events.html">
+                <i class="bi bi-caret-right-square"></i>UpComing Events</a>
+              </li>
+              <li class="nav-item"><a class="nav-link active" href="#">
+                <i class="bi bi-caret-left-square"></i>Past Events</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="./contact.html">
+                <i class="bi bi-pencil-square"></i>Contact</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="./stats.html">
+                <i class="bi bi-file-bar-graph"></i>Stats</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div id="carouselCaptions" class="container-fluid carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+          <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="5" aria-label="Slide 6"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./assets/img/banner.jpg" alt="banner principal" class="w-100 fondo" >
+            <div class="carousel-caption">
+              <h5>Past Events</h5>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="./assets/img/cinema_grande_xl.jpg" alt="banner cine" class="w-100 fondo">
+            <div class="carousel-caption">
+              <h5>Past Events</h5>
+
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="./assets/img/hallowen_xl.jpg" class="w-100 fondo" alt="banner hallowen">
+            <div class="carousel-caption">
+              <h5>Past Events</h5>
+             
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="./assets/img/food_xl.jpg" class="w-100 fondo" alt="banner food">
+            <div class="carousel-caption">
+              <h5>Past Events</h5>
+             </div>
+          </div>
+          <div class="carousel-item">
+            <img src="./assets/img/marathon_xl.jpg" class="w-100 fondo" alt="banner marathon">
+            <div class="carousel-caption">
+              <h5>Past Events</h5>
+             
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="./assets/img/concert_xl.jpg" class="w-100 fondo" alt="banner concert">
+            <div class="carousel-caption">
+              <h5>Past Events</h5>
+              
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselCaptions" data-bs-slide="next">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </header>
+    <main id="tarjetasVue">
+      <div class="container-fluid">
+        <div class="row d-flex justify-content-between align-items-center">
+          <div class="col-md-8 sm-10 d-flex flex-wrap" id="checkbar">
+            
+            <div class="form-check" v-for="(categoria,index) in categorias" :key="index">
+              <input class="form-check-input" type="checkbox" :value="categoria" :id="'Check'+index" v-model="checkbox" v-on:change="filtrarEventos">
+              <label class="form-check-label" :for="'Check'+index">{{categoria}}</label>
+            </div>
+
+          </div>
+          <form class="col-md-4 sm-10 busqueda" onsubmit="return false;">
+            <div class="input-group">
+              <span class="input-group-text lupita">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+              </span>
+              <input class="form-control me-2 text-white barra" type="search"  placeholder="Search event" aria-label="Buscar" id="textoEvento" v-model="textoABuscar" v-on:keyup="filtrarEventos">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="container-fluid card-container">
+        <div class="row justify-content-center" id="container">
+          <div v-if="encontrado" class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex justify-content-center" v-for="evento in eventos" :key="evento._id">
+            <div class="card c_events">
+              <img v-bind:src="evento.image" alt="image event">
+              <div class="card-body d-flex flex-column" v-resaltar="textoABuscar">
+    
+              <h5 class="card-title">{{evento.name}}</h5>
+                <p class="card-text">{{evento.description}}</p>
+                <div class="mt-auto fill-space">
+                  <div class="d-flex align-items-center justify-content-between mx-0">
+                    <p class="card-text text-white price">Price $:{{evento.price}}</p>
+                    <a :href="'./details.html?id='+evento._id" class="btn btn-primary ">View More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div v-else class= 'no_found'>
+            <div class="d-flex justify-content-center align-items-center">
+            <svg height="200" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" width="647.63626" height="632.17383" viewBox="0 0 647.63626 632.17383" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M687.3279,276.08691H512.81813a15.01828,15.01828,0,0,0-15,15v387.85l-2,.61005-42.81006,13.11a8.00676,8.00676,0,0,1-9.98974-5.31L315.678,271.39691a8.00313,8.00313,0,0,1,5.31006-9.99l65.97022-20.2,191.25-58.54,65.96972-20.2a7.98927,7.98927,0,0,1,9.99024,5.3l32.5498,106.32Z" transform="translate(-276.18187 -133.91309)" fill="#f2f2f2"/><path d="M725.408,274.08691l-39.23-128.14a16.99368,16.99368,0,0,0-21.23-11.28l-92.75,28.39L380.95827,221.60693l-92.75,28.4a17.0152,17.0152,0,0,0-11.28028,21.23l134.08008,437.93a17.02661,17.02661,0,0,0,16.26026,12.03,16.78926,16.78926,0,0,0,4.96972-.75l63.58008-19.46,2-.62v-2.09l-2,.61-64.16992,19.65a15.01489,15.01489,0,0,1-18.73-9.95l-134.06983-437.94a14.97935,14.97935,0,0,1,9.94971-18.73l92.75-28.4,191.24024-58.54,92.75-28.4a15.15551,15.15551,0,0,1,4.40966-.66,15.01461,15.01461,0,0,1,14.32032,10.61l39.0498,127.56.62012,2h2.08008Z" transform="translate(-276.18187 -133.91309)" fill="#3f3d56"/><path d="M398.86279,261.73389a9.0157,9.0157,0,0,1-8.61133-6.3667l-12.88037-42.07178a8.99884,8.99884,0,0,1,5.9712-11.24023l175.939-53.86377a9.00867,9.00867,0,0,1,11.24072,5.9707l12.88037,42.07227a9.01029,9.01029,0,0,1-5.9707,11.24072L401.49219,261.33887A8.976,8.976,0,0,1,398.86279,261.73389Z" transform="translate(-276.18187 -133.91309)" fill="#6c63ff"/><circle cx="190.15351" cy="24.95465" r="20" fill="#6c63ff"/><circle cx="190.15351" cy="24.95465" r="12.66462" fill="#fff"/><path d="M878.81836,716.08691h-338a8.50981,8.50981,0,0,1-8.5-8.5v-405a8.50951,8.50951,0,0,1,8.5-8.5h338a8.50982,8.50982,0,0,1,8.5,8.5v405A8.51013,8.51013,0,0,1,878.81836,716.08691Z" transform="translate(-276.18187 -133.91309)" fill="#e6e6e6"/><path d="M723.31813,274.08691h-210.5a17.02411,17.02411,0,0,0-17,17v407.8l2-.61v-407.19a15.01828,15.01828,0,0,1,15-15H723.93825Zm183.5,0h-394a17.02411,17.02411,0,0,0-17,17v458a17.0241,17.0241,0,0,0,17,17h394a17.0241,17.0241,0,0,0,17-17v-458A17.02411,17.02411,0,0,0,906.81813,274.08691Zm15,475a15.01828,15.01828,0,0,1-15,15h-394a15.01828,15.01828,0,0,1-15-15v-458a15.01828,15.01828,0,0,1,15-15h394a15.01828,15.01828,0,0,1,15,15Z" transform="translate(-276.18187 -133.91309)" fill="#3f3d56"/><path d="M801.81836,318.08691h-184a9.01015,9.01015,0,0,1-9-9v-44a9.01016,9.01016,0,0,1,9-9h184a9.01016,9.01016,0,0,1,9,9v44A9.01015,9.01015,0,0,1,801.81836,318.08691Z" transform="translate(-276.18187 -133.91309)" fill="#6c63ff"/><circle cx="433.63626" cy="105.17383" r="20" fill="#6c63ff"/><circle cx="433.63626" cy="105.17383" r="12.18187" fill="#fff"/></svg>
+            </div>
+            <p class="text-center">Sorry, no events found, try adjusting the filters to find an event</p>
+            </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer mt-auto">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-6 d-flex justify-content-start align-items-center ">
+            <a href="https://www.facebook.com/" target="_blank"><i class="fs-3 bi bi-facebook icono"></i></a> 
+            <a href="https://www.instagram.com/" target="_blank"><i class="fs-3 bi bi-instagram icono"></i></a>
+            <a href="https://www.whatsapp.com/" target="_blank"><i class="fs-3 bi bi-whatsapp icono"></i></a>
+          </div>
+          <div class="col-6 d-flex justify-content-end align-items-center">
+            <p class="footer_der">COHORT</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./script/funciones.js"></script>
+   
+  </body>
+</html>
