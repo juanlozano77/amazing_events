@@ -8,32 +8,37 @@ const app = Vue.createApp({
       textoABuscar:"",
       eventosTotales:[],
       encontrado:null,
+      isLoading: null,
+      jsonEncontrado:null,
       
 
     };
   },
-  
- 
+
   async created() {
   
     const ruta = ['https://mindhub-xj03.onrender.com/api/amazing', '../assets/amazing.json'];
-    let encontrado = false;
+    this.isLoading=true
+    let jsonEncontrado = false;
     let i = 0;
     let data=null
-    while (!encontrado && i < ruta.length) {
+    while (!jsonEncontrado && i < ruta.length) {
       
       try {
+       
         const response = await fetch(ruta[i]);
         data = await response.json();
-        encontrado = true;
+        jsonEncontrado = true;
+        this.isLoading= false
             
       } catch (error) {
         console.log('Error en ruta', ruta[i], error);
         i += 1;
       }
     }
-    if (!encontrado) {
+    if (!jsonEncontrado) {
       console.log('Error al intertar cargarse los datos');
+      this.isLoading= false
     }
     
     const tituloPagina = document.title.substring(17);
@@ -53,6 +58,7 @@ const app = Vue.createApp({
     
   },
   directives: {resaltar(el, binding){
+      
       let selector=['.card-title','.card-text']
       for (contenido of selector){
       
@@ -60,9 +66,8 @@ const app = Vue.createApp({
       let resaltados = []
       let textoResaltado=""
 
-      let texto=binding.value
-
-      const arrayTexto = texto.split(" ");
+      texto = binding.value
+      const arrayTexto = texto.toLowerCase().split(" ");
   
       arrayTexto.forEach((texto) => {
         textoTarjeta=tarjeta.textContent
@@ -118,6 +123,7 @@ const app = Vue.createApp({
       textoResaltado += textoTarjeta.substring(ultimoIndice);
 
       tarjeta.innerHTML=textoResaltado
+      
       //filtrarEventosPorTexto(tarjeta,binding.value)
     }
 
@@ -126,8 +132,10 @@ const app = Vue.createApp({
   
    methods:{
    
+   
    filtrarEventosPorTexto:function(tarjetas,arrayTexto){
         const tarjetasconTexto = tarjetas.filter((evento) => {
+        
         const coinciden = arrayTexto.every((palabra) => {
           return (
             evento.description.toLowerCase().includes(palabra) ||
@@ -137,13 +145,20 @@ const app = Vue.createApp({
           return coinciden;
       })
         return tarjetasconTexto;
-      }       
+      }
+         
 
-   , filtrarEventos:function(){
+   , filtrarEventos:function(event){
     const tildados = this.checkbox
-    const texto = this.textoABuscar.trim().toLowerCase()
-    console.log(texto)
-    const arrayTexto = texto.split(" ");
+    let texto
+    if (event.target.className=="form-control me-2 text-white barra"){
+      texto = event.target.value
+      this.textoABuscar=texto
+    }
+    else{
+      texto=this.textoABuscar
+    }
+    const arrayTexto = texto.toLowerCase().split(" ");
     let tarjetasFiltradas = this.eventosTotales
     if (tildados.length!=0) {
       tarjetasFiltradas = tarjetasFiltradas.filter(evento => tildados.includes(evento.category)) 
